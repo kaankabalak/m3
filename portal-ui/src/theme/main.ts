@@ -35,7 +35,7 @@ const theme = createMuiTheme({
     }
   },
   typography: {
-    fontFamily: ["Questrial", "sans-serif"].join(','),
+    fontFamily: ["Lato", "sans-serif"].join(','),
     h1: {
       fontWeight: "bold",
       color:"#201763"

@@ -38,45 +38,52 @@ const styles = (theme: Theme) =>
     },
     paper: {
       marginTop: theme.spacing(16),
-      borderRadius: "3px",
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
-      width: "800px",
-      margin: "auto"
-    },
-    avatar: {
-      margin: theme.spacing(1),
-      backgroundColor: theme.palette.secondary.main
+      width: "820px",
+      margin: "auto",
+      "&.MuiPaper-root": {
+        borderRadius: "8px"
+      }
     },
     form: {
       width: "100%", // Fix IE 11 issue.
       marginTop: theme.spacing(3)
     },
     submit: {
-      margin: theme.spacing(3, 0, 2)
+      marginTop: "61px",
+      marginBottom: "16px",
+      fontWeight: "bold",
+      "&.MuiButton-root": {
+        fontSize: "9px",
+        padding: "11px 37px"
+      }
+    },
+    signUpText: {
+      fontSize: "10px"
+    },
+    signUpLink: {
+      fontWeight: "bold"
     },
     errorBlock: {
       color: "red"
     },
-    mainContainer: {
-      borderRadius: "3px"
-    },
     theOcean: {
-      borderTopLeftRadius: "3px",
-      borderBottomLeftRadius: "3px",
+      borderTopLeftRadius: "8px",
+      borderBottomLeftRadius: "8px",
       background:
-        "transparent linear-gradient(333deg, #281B6F 1%, #271260 13%, #120D53 83%) 0% 0% no-repeat padding-box;",
+        "transparent linear-gradient(333deg, #281B6F 1%, #271260 13%, #120D53 83%) 0% 0% no-repeat padding-box;"
     },
-      oceanBg:{
-          backgroundImage:'url(/images/BG_Illustration.svg)',
-          backgroundRepeat:'no-repeat',
-          backgroundPosition:'bottom left',
-          height:'100%',
-          width:'100%',
-      },
+    oceanBg: {
+      backgroundImage: "url(/images/BG_Illustration.svg)",
+      backgroundRepeat: "no-repeat",
+      backgroundPosition: "bottom left",
+      height: "100%",
+      width: "75%"
+    },
     theLogin: {
-      padding: "76px 62px 20px 62px"
+      padding: "76px 56px 31px 62px"
     }
   });
 
@@ -136,9 +143,9 @@ class Login extends React.Component<LoginProps> {
     const { classes } = this.props;
     return (
       <Paper className={classes.paper}>
-        <Grid container className={classes.mainContainer}>
+        <Grid container>
           <Grid item xs={7} className={classes.theOcean}>
-              <div className={classes.oceanBg}></div>
+            <div className={classes.oceanBg}></div>
           </Grid>
           <Grid item xs={5} className={classes.theLogin}>
             <Typography component="h1" variant="h6">
@@ -207,20 +214,27 @@ class Login extends React.Component<LoginProps> {
                   />
                 </Grid>
               </Grid>
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                color="primary"
-                className={classes.submit}
-              >
-                Login
-              </Button>
-              <Grid container justify="flex-end">
+              <Grid container justify="center">
                 <Grid item>
-                  <Link href="#" variant="body2">
-                    Forgot Password?
-                  </Link>
+                  <Button
+                    type="submit"
+                    variant="contained"
+                    color="primary"
+                    className={classes.submit}
+                  >
+                    Log in
+                  </Button>
+                </Grid>
+              </Grid>
+              <Grid container justify="center">
+                <Grid item>
+                  <Typography className={classes.signUpText}>
+                    Don't have an account?{" "}
+                    <Link href="#" className={classes.signUpLink}>
+                      Sign up
+                    </Link>
+                    {"."}
+                  </Typography>
                 </Grid>
               </Grid>
             </form>
